@@ -1,0 +1,56 @@
+<div class="p30">
+   <div>
+     <h2>
+       Travel Agency
+     </h2>
+   </div>
+  <div>
+    <div>
+      <form (ngSubmit)="checkEmi()" [formGroup]="emiForm">
+
+
+        <div class="input-wrap ">
+          <div>Booking Date:</div>
+          <input  class="form-control input"
+                  email="true"
+                  formControlName='bookingDate' placeholder="Booking Date"
+                  type="date">
+        </div>
+        <div class="input-wrap ">
+          <div>Checkin Date:</div>
+          <input  class="form-control input"
+                  formControlName='checkinDate'
+                  placeholder="Checkin Date"
+                  type="date">
+        </div>
+        <div class="input-wrap ">
+          <input  class="form-control input"
+                  formControlName='amount'
+                  placeholder="Amount"
+                  type="number">
+        </div>
+        <div class="button m10">
+          <input   class="submitButton" type="submit" value="Check EMI">
+        </div>
+
+      </form>
+    </div>
+    <div *ngIf="emiData.length" class="w75 mt20">
+      <div>EMI DATA</div>
+      <div>
+        <table>
+          <tr>
+            <th>Sr no</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+          <tr *ngFor="let item of emiData;let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.amount}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
